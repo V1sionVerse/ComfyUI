@@ -405,15 +405,15 @@ class PromptServer():
                 if overwrite is not None and (overwrite == "true" or overwrite == "1"):
                     pass
                 else:
-                    # Get uploaded file size once  
-                    image.file.seek(0, 2)  # Seek to end  
-                    uploaded_size = image.file.tell()  
-                    image.file.seek(0)  # Reset to beginning  
+                    # Get uploaded file size once
+                    image.file.seek(0, 2)  # Seek to end
+                    uploaded_size = image.file.tell()
+                    image.file.seek(0)  # Reset to beginning
                     
                     i = 1
                     while os.path.exists(filepath):
-                        # Quick size comparison first  
-                        existing_size = os.path.getsize(filepath)  
+                        # Quick size comparison first
+                        existing_size = os.path.getsize(filepath)
                         if existing_size == uploaded_size:
                             if compare_image_hash(filepath, image): #compare hash to prevent saving of duplicates with same name, fix for #3465
                                 image_is_duplicate = True
