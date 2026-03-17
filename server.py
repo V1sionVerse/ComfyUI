@@ -409,7 +409,7 @@ class PromptServer():
                     image.file.seek(0, 2)  # Seek to end
                     uploaded_size = image.file.tell()
                     image.file.seek(0)  # Reset to beginning
-                    
+
                     i = 1
                     while os.path.exists(filepath):
                         # Quick size comparison first
